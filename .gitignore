@@ -4,4 +4,7 @@
 *.log
 *.class
 target/
-
+.bloop
+.metals
+.vscode
+metals.sbt
