@@ -1,6 +1,6 @@
 name := "Scopus"
 organization := "co.horn"
-version := "0.5.4"
+version := "0.5.5"
 scalaVersion := "2.13.6"
 crossScalaVersions := Seq("2.12.15", "2.13.6")
 scalacOptions ++= Seq(
@@ -21,12 +21,13 @@ libraryDependencies ++= List(
 publishMavenStyle := true
 
 credentials += Credentials(
-  "Repository Archiva Managed internal Repository",
-  "sbt.horn.co",
-  sys.env("HORN_SBT_USERNAME"),
-  sys.env("HORN_SBT_PASSWORD")
+  "GitHub Package Registry",
+  "maven.pkg.github.com",
+  "8eo",
+  sys.env("GITHUB_TOKEN")
 )
-publishTo := Some("Horn SBT" at "https://sbt.horn.co/repository/internal")
+
+publishTo := Some("Github packages" at "https://maven.pkg.github.com/8eo/scopus")
 
 pomIncludeRepository := { _ =>
   false
