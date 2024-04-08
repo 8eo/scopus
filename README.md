@@ -1,5 +1,6 @@
-[![Build Status](https://img.shields.io/travis/davidmweber/scopus.svg)](https://travis-ci.org/davidmweber/scopus)
-[![Maven Central](https://img.shields.io/maven-central/v/za.co.monadic/scopus_2.12.svg)](http://search.maven.org/#search%7Cga%7C1%7Cscopus)
+## Build Status
+[![Build @horn/scopus](https://github.com/8eo/scopus/actions/workflows/push_main.yml/badge.svg)](https://github.com/8eo/scopus/actions/workflows/push_main.yml)
+
 
 Scopus
 ------
