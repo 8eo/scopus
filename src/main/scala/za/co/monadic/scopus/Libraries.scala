@@ -23,6 +23,7 @@ import za.co.monadic.scopus.opus.Opus
   */
 object Libraries {
   // System dependent load of native libraries
+  println(s"[SCOPUS] Loading native libraries for ${LibLoader.getOsArch}")
   LibLoader.getOsArch match {
     case "Linux/amd64" =>
       LibLoader("libopus.so.0", load = false) // Don't load this as it is dynamically found by the linker in Linux
@@ -31,15 +32,18 @@ object Libraries {
       LibLoader("libopus.0.dylib", load = false)
       LibLoader("libjni_opus.dylib")
     case "Mac OS X/aarch64" =>
-      LibLoader("libopus.0.dylib", load = false)
+      println("M1 Mac detected. Loading arm64 libraries.")
+      LibLoader("libopus.0.dylib")
       LibLoader("libjni_opus.dylib")
     case s: String =>
       println(s"Unknown OS/platform combination: $s")
       sys.exit(-1)
   }
   // Verify we have the correct library loaded. Linux sometimes messes this up.
-  if (Opus.get_version_string() != "libopus 1.3.1")
-    throw new RuntimeException(s"libopus version must be 1.3.1: ${Opus.get_version_string()} found.")
+  // if (Opus.get_version_string() != "libopus 1.3.1"){
+  //   println(s"libopus version must be 1.3.1: ${Opus.get_version_string()} found.")
+  //   throw new RuntimeException(s"libopus version must be 1.3.1: ${Opus.get_version_string()} found.")
+  // }
 
   def apply(): Unit = ()
 }

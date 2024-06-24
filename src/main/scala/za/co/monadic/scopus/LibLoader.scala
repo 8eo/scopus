@@ -73,6 +73,7 @@ object LibLoader {
       }
       // Finally, load the dynamic library if required
       if (load) System.load(fileOut.getAbsolutePath)
+      println(s"[SCOPUS] Loaded $path/$libName")
     } catch {
       // This is pretty catastrophic so bail.
       case e: Exception =>
